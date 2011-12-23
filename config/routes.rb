@@ -9,6 +9,6 @@ IpMe::Application.routes.draw do
 
   resources :hosts
 
-  root :to => 'host#index'
+  root :to => 'hosts#index'
   # See how all your routes lay out with "rake routes"
 end

@@ -1,8 +1,8 @@
 require "minitest_helper"
 
-class HostsControllerTest < MiniTest::Rails::Controller
+class HostControllerTest < MiniTest::Rails::Controller
   before do
-    @controller = HostsController.new
+    @controller = HostController.new
   end
 
   it "must be a real test" do
