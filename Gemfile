@@ -40,6 +40,7 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'pry'
 end
 
 gem 'therubyracer'

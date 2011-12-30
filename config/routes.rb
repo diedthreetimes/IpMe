@@ -7,8 +7,8 @@ IpMe::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  resources :hosts
+  resources :hosts, :defaults => { :format => 'json' }
 
-  root :to => 'hosts#index'
+  root :to => 'hosts#index', :format => 'html'
   # See how all your routes lay out with "rake routes"
 end

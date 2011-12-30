@@ -1,4 +1,6 @@
 class HostsController < ApplicationController
+  protect_from_forgery :except => :create
+
   def index
     @hosts = Host.all
 
@@ -17,6 +19,11 @@ class HostsController < ApplicationController
   #   end
   # end
 
+  # TODO: Respond to xml and have a seperate error code for various validation errors
+  # TODO: Remove hosts
+  # TODO: Add in status codes
+  # TODO: refactor host token as id
+  # TODO: refactor errors to display as json
   def create
     @host = Host.new(params[:host])
 
