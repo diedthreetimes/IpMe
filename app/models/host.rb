@@ -1,3 +1,4 @@
 class Host < ActiveRecord::Base
-  # TODO: add in name validation and uniq
+  validates_uniqueness_of :name
+  validates_presence_of :name
 end
