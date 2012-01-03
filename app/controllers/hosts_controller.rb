@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-  protect_from_forgery :except => :create
+  protect_from_forgery :except => [:create, :update]
 
   def index
     @hosts = Host.all
@@ -22,7 +22,6 @@ class HostsController < ApplicationController
   # TODO: Respond to xml and have a seperate error code for various validation errors
   # TODO: Remove hosts
   # TODO: Add in status codes
-  # TODO: refactor host token as id
   # TODO: refactor errors to display as json
   def create
     @host = Host.new(params[:host])
@@ -36,6 +35,23 @@ class HostsController < ApplicationController
       else
         format.html  { render :action => "new" }
         format.json  { render :json => @host.errors,
+          :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    @host = Host.find(params[:id])
+
+    respond_to do |format|
+      if @host.update_attributes(params[:host])
+        format.html { redirect_to(@host,
+          :notice => 'Host was successfully updated.') }
+        format.json { render :json => @host,
+          :status => :ok, :location => @host }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @host.errors,
           :status => :unprocessable_entity }
       end
     end
