@@ -1,0 +1,9 @@
+Add in delete link to hosts
+Add in users and authentication
+Add in task to update ip
+Add in daemon to call task
+
+Make sure to return errors as json
+
+Add in unregister
+    -delete token and hostname
